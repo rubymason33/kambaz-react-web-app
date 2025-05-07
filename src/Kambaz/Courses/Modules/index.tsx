@@ -14,7 +14,7 @@ export default function Modules() {
             
             <ul id="wd-modules">
                 <li className="wd-module">
-                    <div className="wd-title">Week 1</div>
+                    <div className="wd-title">Week 1 - Intro to Web Development</div>
                     <ul className="wd-lessons">
                         <li className="wd-lesson">
                             <span className="wd-title">LEARNING OBJECTIVES</span>
@@ -41,7 +41,7 @@ export default function Modules() {
                     </ul>
                 </li>
                 <li className="wd-module">
-                    <div className="wd-title">Week 2</div>
+                    <div className="wd-title">Week 2 - Getting Set Up</div>
                     <ul className="wd-lessons">
                         <li className="wd-lesson">
                             <span className="wd-title">LEARNING OBJECTIVES</span>
@@ -68,7 +68,7 @@ export default function Modules() {
                     </ul>
                 </li>
                 <li className="wd-module">
-                    <div className="wd-title">Week 3</div>
+                    <div className="wd-title">Week 3 - Creating a Website</div>
                     <ul className="wd-lessons">
                         <li className="wd-lesson">
                             <span className="wd-title">LEARNING OBJECTIVES</span>

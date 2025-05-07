@@ -6,6 +6,9 @@ import Lab3 from "./Lab3";
 export default function Labs() {
     return (
         <div>
+            <h3>Ruby Mason<br />
+            Professor Annunziato, Section 04</h3>
+
             <h1>Labs</h1>
             <TOC />
             <Routes>

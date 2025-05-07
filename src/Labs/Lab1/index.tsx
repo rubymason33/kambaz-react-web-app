@@ -19,7 +19,8 @@ export default function Lab1() {
             <p id="wd-p-1">
             This is a paragraph. We often separate a long set of sentences with vertical spaces to make the text easier to read. 
             Browsers ignore vertical white spaces and render all the text as one single set of sentences. 
-            To force the browser to add vertical spacing, wrap the paragraphs you want to separate with the paragraph tag  </p>
+            To force the browser to add vertical spacing, wrap the paragraphs you want to separate with the paragraph tag
+            </p>
             <p id="wd-p-2">
             This is the first paragraph. The paragraph tag is used to format
             vertical gaps between long pieces of text like this one.
@@ -174,16 +175,14 @@ export default function Lab1() {
                 <label htmlFor="wd-text-fields-username">Username:</label>
                 <input placeholder="jdoe" id="wd-text-fields-username" /> <br />
                 <label htmlFor="wd-text-fields-password">Password:</label>
-                <input type="password" value="123@#$asd" id="wd-text-fields-password" />
-                <br />
+                <input type="password" value="123@#$asd" id="wd-text-fields-password" /><br />
                 <label htmlFor="wd-text-fields-first-name">First name:</label>
-                <input type="text" title="The first name" id="wd-text-fields-first-name" /> <br />
+                <input type="text" title="The first name" id="wd-text-fields-first-name" placeholder="John"/> <br />
                 <label htmlFor="wd-text-fields-last-name">Last name:</label>
                 <input type="text" placeholder="Doe"
-                    value="Wonderland"
+                    defaultValue="Wonderland"
                     title="The last name"
                     id="wd-text-fields-last-name" />
-                {/* copy rest of form elements here  */}
             </form>
         </div>
         <div id="wd-textarea-tag">
@@ -198,6 +197,9 @@ export default function Lab1() {
                     id="wd-all-good">
             Hello World!
             </button>
+            <br /><br />
+            Upload a file:<br />
+            <input id="wd-file-upload" type="file"></input>
 
             <h5 id="wd-radio-buttons">Radio buttons</h5>
             <label>Favorite movie genre:</label><br />
@@ -251,27 +253,27 @@ export default function Lab1() {
 
             <label htmlFor="wd-text-fields-salary-start"> Starting salary:</label>
             <input type="number"
-                value="100000"
+                defaultValue="100000"
                 placeholder="1000"
                 id="wd-text-fields-salary-start"/><br/>
 
             <label htmlFor="wd-text-fields-rating"> Rating: </label>
             <input type="range"
-                value="4"
+                defaultValue="4"
                 max="5"
                 placeholder="Doe"
                 id="wd-text-fields-rating"/><br/>
 
             <label htmlFor="wd-text-fields-dob"> Date of birth: </label>
             <input type="date"
-                value="2000-01-21"
+                defaultValue="2000-01-21"
                 id="wd-text-fields-dob"/><br/>
         </div>
         <div id="wd-navigation">
         <h4>Anchor tag</h4>
         Please <a href="https://www.lipsum.com" id="wd-lipsum">click here</a> to get dummy text<br />
 
-        Please <a href="https://github.com/rubymason33/CS4100_FinalProject" id="wd-github">click here</a> to visit my GitHub<br />
+        Please <a href="https://github.com/rubymason33/kambaz-react-web-app" id="wd-github">click here</a> to visit my GitHub!<br />
         </div>
     </div>
 );}

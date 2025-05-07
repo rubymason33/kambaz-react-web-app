@@ -2,14 +2,9 @@ export default function AssignmentEditor() {
     return (
         <div id="wd-assignments-editor">
             <label htmlFor="wd-name"><b>Assignment Name</b></label><br /><br />
-            <input id="wd-name" defaultValue="A1 - ENV + HTML" /><br /><br />
-            <textarea id="wd-description">
-                The assignment is available online. Submit a link to the landing page of your Web application running on Netlify. The landing page should include the following:
-                Your full name and section. 
-                Links to each of the lab assignments. 
-                Link to the Kambaz application. 
-                Links to all relevant source code repositories. 
-                The Kambaz application should include a link to navigate back to the landing page.
+            <input id="wd-name" placeholder="Assignment Name" defaultValue="A1 - ENV + HTML" /><br /><br />
+            <textarea id="wd-description" cols={30} rows={10} 
+                defaultValue=" The assignment is available online. Submit a link to the landing page of your Web application running on Netlify. The landing page should include the following: Your full name and section. Links to each of the lab assignments. Link to the Kambaz application. Links to all relevant source code repositories. The Kambaz application should include a link to navigate back to the landing page.">               
             </textarea><br /><br />
             <table>
                 <tr>
@@ -17,7 +12,7 @@ export default function AssignmentEditor() {
                         <label htmlFor="wd-points">Points</label>
                     </td>
                     <td>
-                        <input id="wd-points" defaultValue={100} />
+                        <input id="wd-points" type="number" defaultValue={100} />
                     </td>
                 </tr>
                 <br />
@@ -52,7 +47,7 @@ export default function AssignmentEditor() {
                     <td>
                         <select id="wd-submission-type">
                             <option selected value="ONLINE">Online</option>
-                            <option value="IN_PERSON">In Person</option>
+                            <option value="IN-PERSON">In Person</option>
                         </select><br /><br />
                         <label >Online Entry Options</label><br/>
                         <input type="checkbox" name="check-type" id="wd-text-entry"/>
@@ -74,7 +69,7 @@ export default function AssignmentEditor() {
                     </td>
                     <td>
                         Assign to <br />
-                        <input id="wd-assign-to" defaultValue="Everyone"></input><br /><br />
+                        <input id="wd-assign-to" defaultValue="Everyone" placeholder="assign to"></input><br /><br />
                         <label htmlFor="wd-due-date">Due</label><br />
                         <input id="wd-due-date" type="date" defaultValue="2024-05-13"></input><br /><br />
                         <table>
