@@ -12,7 +12,7 @@ import { MdOutlineAssignment } from "react-icons/md";
 export default function Assignments() {
     return (
         <div>
-            <div id="wd-assignment-header">
+            <div id="wd-assignment-header" className="mb-5">
                 <Button className="me-2 float-end" size="lg" variant="danger">
                     <FaPlus /> Assignment
                 </Button>
@@ -27,7 +27,6 @@ export default function Assignments() {
                 </InputGroup>
 
             </div>
-            <br /><br />
             <div>
                 <ListGroup className="rounded-0" id="wd-assignments">
                     <ListGroup.Item className="wd-assignment-category p-0 mb-5 fs-5 border-gray">
@@ -52,7 +51,7 @@ export default function Assignments() {
 
                                 {/* Text block */}
                                 <div className="flex-grow-1">
-                                    <div className="fw-bold fs-5 mb-1 text-decoration-underline">
+                                    <div className="fw-bold fs-5 mb-1">
                                         <a href="#/Kambaz/Courses/1234/Assignments/1" className="wd-assignment-link">
                                             A1 - ENV + HTML
                                         </a>
@@ -86,7 +85,7 @@ export default function Assignments() {
 
                                 {/* Text block */}
                                 <div className="flex-grow-1">
-                                    <div className="fw-bold fs-5 mb-1 text-decoration-underline">
+                                    <div className="fw-bold fs-5 mb-1">
                                         <a href="#/Kambaz/Courses/1234/Assignments/2" className="wd-assignment-link" >
                                             A2 - CSS + BOOTSTRAP
                                         </a>
@@ -120,7 +119,7 @@ export default function Assignments() {
 
                                 {/* Text block */}
                                 <div className="flex-grow-1">
-                                    <div className="fw-bold fs-5 mb-1 text-decoration-underline">
+                                    <div className="fw-bold fs-5 mb-1">
                                         <a href="#/Kambaz/Courses/1234/Assignments/3" className="wd-assignment-link">
                                             A3 - JAVASCRIPT + REACT
                                         </a>
@@ -148,31 +147,4 @@ export default function Assignments() {
         </div>
     );
 }
-
-
-  
-
-{/* <div id="wd-assignments">
-            <input placeholder="Search for Assignments" id="wd-search-assignment" />{' '}
-            <button id="wd-add-assignment-group">+ Group</button>{' '}
-            <button id="wd-add-assignment">+ Assignment</button>
-            <h3 id="wd-assignments-title">ASSIGNMENTS 40% of Total <button>+</button> </h3>
-            <ul id="wd-assignment-list">
-                <li className="wd-assignment-list-item">
-                    <a href="#/Kambaz/Courses/1234/Assignments/1" className="wd-assignment-link" >A1 - ENV + HTML</a><br />
-                    Multiple Modules | <b>Not available until</b> May 6th at 12:00am |<br />
-                    <b>Due</b> May 13th at 11:59pm | 100 pts
-                </li>
-                <li className="wd-assignment-list-item">
-                    <a href="#/Kambaz/Courses/1234/Assignments/2" className="wd-assignment-link" >A2 - CSS + BOOTSTRAP</a><br />
-                    Multiple Modules | <b>Not available until</b> May 13th at 12:00am |<br />
-                    <b>Due</b> May 20th at 11:59pm | 100 pts
-                </li>
-                <li className="wd-assignment-list-item">
-                    <a href="#/Kambaz/Courses/1234/Assignments/3" className="wd-assignment-link" >A3 - JAVASCRIPT + REACT</a><br />
-                    Multiple Modules | <b>Not available until</b> May 20th at 12:00am |<br />
-                    <b>Due</b> May 27th at 11:59pm | 100 pts
-                </li>
-            </ul>
-        </div> */}
 
