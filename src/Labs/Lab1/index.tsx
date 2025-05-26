@@ -278,3 +278,35 @@ export default function Lab1() {
         </div>
     </div>
 );}
+
+
+// import "./index.css"
+// export default function Lab1() {
+//     return (
+//         <div>
+//             <h2>Quiz Testing</h2>
+//             <div className="test-class">This is test class</div>
+//             <div id="test-id">This is test id</div>
+//             <div id="test-id" className="test-class">This is test class and test id</div>
+//             <h1 className="blue">Hello</h1>
+
+//             <div className="asd">I am red</div>
+//             <div id="qwe">I am blue</div>
+
+//             <div className="qwe">
+//                 <div className="asd">My text is red.</div>
+//                 <div className="zxc">
+//                     <div className="xcv">My background is green.</div>
+//                 </div>
+//             </div>
+
+//             <div className="box">
+//             <ul>
+//                 <li>List item 1</li>
+//                 <li>List item 2</li>
+//                 <li>List item 3</li>
+//             </ul>
+//             </div>
+//         </div>
+//     );
+// }
