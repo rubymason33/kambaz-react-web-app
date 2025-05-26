@@ -6,10 +6,14 @@ import { BsGripVertical } from "react-icons/bs";
 import LessonControlButtons from "../Modules/LessonControlButtons";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import { MdOutlineAssignment } from "react-icons/md";
-
+import { useParams, Link } from "react-router-dom";
+import * as db from "../../Database";
 
 
 export default function Assignments() {
+    const { cid } = useParams();
+    const assignments = db.assignments.filter((a: any) => a.course === cid);
+
     return (
         <div>
             <div id="wd-assignment-header" className="mb-5">
@@ -25,7 +29,6 @@ export default function Assignments() {
                         placeholder="Search..."
                     />
                 </InputGroup>
-
             </div>
             <div>
                 <ListGroup className="rounded-0" id="wd-assignments">
@@ -37,112 +40,66 @@ export default function Assignments() {
                             </div>
                             <AssignmentControlButtons />
                         </div>
+
                         <ListGroup className="wd-lesson rounded-0">
-                            <ListGroup.Item className="d-flex align-items-center px-3 py-3">
-                                {/* Grip icon */}
-                                <div className="me-3 d-flex align-items-center" style={{ width: "30px" }}>
-                                    <BsGripVertical className="fs-2 text-muted" />
-                                </div>
-
-                                {/* Assignment icon */}
-                                <div className="me-3 d-flex align-items-center" style={{ width: "30px" }}>
-                                    <MdOutlineAssignment className="fs-2 text-success" />
-                                </div>
-
-                                {/* Text block */}
-                                <div className="flex-grow-1">
-                                    <div className="fw-bold fs-5 mb-1">
-                                        <a href="#/Kambaz/Courses/1234/Assignments/1" className="wd-assignment-link">
-                                            A1 - ENV + HTML
-                                        </a>
+                            {assignments.map((assignment: any) => (
+                                <ListGroup.Item key={assignment._id} className="d-flex align-items-center px-3 py-3">
+                                    {/* grip icon */}
+                                    <div className="me-3 d-flex align-items-center" style={{ width: "30px" }}>
+                                        <BsGripVertical className="fs-2 text-muted" />
                                     </div>
-                                    <div className="small mb-1">
-                                        <span className="text-danger">Multiple Modules</span>
-                                        <span className="text-muted"> | </span>
-                                        <span className="fw-bold text-muted">Not available until</span>
-                                        <span className="text-muted"> May 6 at 12:00am</span>
-                                    </div>
-                                    <div className="small text-muted">
-                                        <span className="fw-bold">Due</span> May 13 at 11:59pm | 100 pts
-                                    </div>
-                                </div>
 
-                                {/* Check */}
-                                <div className="d-flex align-items-center ms-3">
+                                    {/* assignment icon */}
+                                    <div className="me-3 d-flex align-items-center" style={{ width: "30px" }}>
+                                        <MdOutlineAssignment className="fs-2 text-success" />
+                                    </div>
+
+                                    {/* text block */}
+                                    <div className="flex-grow-1">
+                                        <div className="fw-bold fs-5 mb-1">
+                                            <Link
+                                                to={`/Kambaz/Courses/${cid}/Assignments/${assignment._id}`}
+                                                className="wd-assignment-link">
+                                                {assignment.title}
+                                            </Link>
+                                        </div>
+
+                                        <div className="small mb-1">
+                                            <span className="text-danger">{assignment.modules}</span>
+                                            <span className="text-muted"> | </span>
+                                            <span className="fw-bold text-muted">Not available until </span>
+                                            <span className="text-muted">
+                                                {new Date(assignment.availableFrom).toLocaleString("en-US", {
+                                                    month: "long",
+                                                    day: "numeric",
+                                                    hour: "numeric",
+                                                    minute: "2-digit",
+                                                    hour12: true
+                                                })}{" | "}
+                                            </span>
+                                        </div>
+                                        <div className="small text-muted">
+                                            <span className="fw-bold">Due </span>
+                                            {new Date(assignment.dueDate).toLocaleString("en-US", {
+                                                month: "long",
+                                                day: "numeric",
+                                                hour: "numeric",
+                                                minute: "2-digit",
+                                                hour12: true
+                                            })}{" | "} {assignment.points} pts
+                                        </div>
+                                    </div>
+
+                                    {/* lesson control */}
+                                    <div className="d-flex align-items-center ms-3">
                                     <LessonControlButtons />
-                                </div>
-                            </ListGroup.Item>
-                            <ListGroup.Item className="d-flex align-items-center px-3 py-3">
-                                {/* Grip icon */}
-                                <div className="me-3 d-flex align-items-center" style={{ width: "30px" }}>
-                                    <BsGripVertical className="fs-2 text-muted" />
-                                </div>
-
-                                {/* Assignment icon */}
-                                <div className="me-3 d-flex align-items-center" style={{ width: "30px" }}>
-                                    <MdOutlineAssignment className="fs-2 text-success" />
-                                </div>
-
-                                {/* Text block */}
-                                <div className="flex-grow-1">
-                                    <div className="fw-bold fs-5 mb-1">
-                                        <a href="#/Kambaz/Courses/1234/Assignments/2" className="wd-assignment-link" >
-                                            A2 - CSS + BOOTSTRAP
-                                        </a>
                                     </div>
-                                    <div className="small mb-1">
-                                        <span className="text-danger">Multiple Modules</span>
-                                        <span className="text-muted"> | </span>
-                                        <span className="fw-bold text-muted">Not available until</span>
-                                        <span className="text-muted"> May 13 at 12:00am</span>
-                                    </div>
-                                    <div className="small text-muted">
-                                        <span className="fw-bold">Due</span> May 20 at 11:59pm | 100 pts
-                                    </div>
-                                </div>
-
-                                {/* Check */}
-                                <div className="d-flex align-items-center ms-3">
-                                    <LessonControlButtons />
-                                </div>
-                            </ListGroup.Item>
-                            <ListGroup.Item className="d-flex align-items-center px-3 py-3">
-                                {/* Grip icon */}
-                                <div className="me-3 d-flex align-items-center" style={{ width: "30px" }}>
-                                    <BsGripVertical className="fs-2 text-muted" />
-                                </div>
-
-                                {/* Assignment icon */}
-                                <div className="me-3 d-flex align-items-center" style={{ width: "30px" }}>
-                                    <MdOutlineAssignment className="fs-2 text-success" />
-                                </div>
-
-                                {/* Text block */}
-                                <div className="flex-grow-1">
-                                    <div className="fw-bold fs-5 mb-1">
-                                        <a href="#/Kambaz/Courses/1234/Assignments/3" className="wd-assignment-link">
-                                            A3 - JAVASCRIPT + REACT
-                                        </a>
-                                    </div>
-                                    <div className="small mb-1">
-                                        <span className="text-danger">Multiple Modules</span>
-                                        <span className="text-muted"> | </span>
-                                        <span className="fw-bold text-muted">Not available until</span>
-                                        <span className="text-muted"> May 20 at 12:00am</span>
-                                    </div>
-                                    <div className="small text-muted">
-                                        <span className="fw-bold">Due</span> May 27 at 11:59pm | 100 pts
-                                    </div>
-                                </div>
-
-                                {/* Check */}
-                                <div className="d-flex align-items-center ms-3">
-                                    <LessonControlButtons />
-                                </div>
-                            </ListGroup.Item>            
+                                </ListGroup.Item>
+                            ))}
                         </ListGroup>
                     </ListGroup.Item>
                 </ListGroup>
+                    
             </div>
         </div>
     );

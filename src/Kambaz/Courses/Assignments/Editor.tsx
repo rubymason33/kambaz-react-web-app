@@ -1,25 +1,34 @@
 import { Form, Row, Col, Button } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
+import * as db from "../../Database";
 import "./styles.css";
 export default function AssignmentEditor() {
+    const { cid, aid } = useParams();
+    const assignment = db.assignments.find(
+        (a: any) => a.course === cid && a._id === aid
+    );
+    // handle not finding a match
+    if (!assignment) {
+        return <div className="p-4"><h3>Assignment not found.</h3></div>;
+    }
+    
+    // grab the date
+    const availableFrom = assignment.availableFrom.slice(0,10)
+    const dueDate = assignment.dueDate.slice(0,10)
+    const untilDate = assignment.untilDate.slice(0,10)
+
     return (
         <div id="wd-assignments-editor" className="p-4">
             <Form>
                 <Form.Group className="mb-3" id="wd-name">
                     <Form.Label>Assignment Name</Form.Label>
-                    <Form.Control type="text" placeholder="Assignment Name" defaultValue="A1 - ENV + HTML" />
+                    <Form.Control type="text" placeholder="Assignment Name" defaultValue={assignment.title} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" id="wd-description">
                     <Form.Label>Description</Form.Label>
-                    <Form.Control as="textarea" cols={30} rows={10} 
-                    defaultValue={`The assignment is available online.
-Submit a link to the landing page of your Web application running on Netlify.
-The landing page should include the following:
-- Your full name and section.
-- Links to each of the lab assignments.
-- Link to the Kambaz application.
-- Links to all relevant source code repositories.
-- The Kambaz application should include a link to navigate back to the landing page.`} />
+                    <Form.Control as="textarea" cols={30} rows={10} placeholder="Assignment Description"
+                    defaultValue={assignment.description} />
                 </Form.Group>
 
                 <Row className="mb-3 align-items-center">
@@ -27,7 +36,7 @@ The landing page should include the following:
                         <Form.Label htmlFor="wd-points" className="mb-0">Points</Form.Label>
                     </Col>
                     <Col>
-                        <Form.Control id="wd-points" type="number" defaultValue={100} />
+                        <Form.Control id="wd-points" type="number" placeholder="100" defaultValue={assignment.points} />
                     </Col>
                 </Row>
 
@@ -86,16 +95,16 @@ The landing page should include the following:
                             <Form.Control type="text" defaultValue="Everyone" className="mb-3"/>
 
                             <Form.Label htmlFor="wd-due-date"><b>Due</b></Form.Label>
-                            <Form.Control type="date" defaultValue="2024-05-13" className="mb-3"></Form.Control>
+                            <Form.Control type="date" defaultValue={dueDate} className="mb-3"></Form.Control>
 
                             <Row className="mb-3">
                                 <Col>
                                     <Form.Label htmlFor="wd-available-from"><b>Available From</b></Form.Label>
-                                    <Form.Control id="wd-available-from" type="date" defaultValue="2024-05-06"></Form.Control>
+                                    <Form.Control id="wd-available-from" type="date" defaultValue={availableFrom}></Form.Control>
                                 </Col>
                                 <Col>
                                     <Form.Label htmlFor="wd-available-until"><b>Until</b></Form.Label>
-                                    <Form.Control id="wd-available-until" type="date" defaultValue="2024-05-20"></Form.Control>
+                                    <Form.Control id="wd-available-until" type="date" defaultValue={untilDate}></Form.Control>
                                 </Col>
                             </Row>
                         </div>
@@ -105,8 +114,12 @@ The landing page should include the following:
                 <hr />
 
                 <div className="wd-assignment-editor-end">
-                    <Button variant="danger" className="float-end">Save</Button>
-                    <Button variant="secondary" className="me-2 float-end">Cancel</Button>
+                    <Link to={`/Kambaz/Courses/${cid}/Assignments`}>
+                        <Button variant="danger" className="float-end">Save</Button>
+                    </Link>
+                    <Link to={`/Kambaz/Courses/${cid}/Assignments`}>
+                        <Button variant="secondary" className="me-2 float-end">Cancel</Button>
+                    </Link>
                 </div>
             </Form>
         </div>

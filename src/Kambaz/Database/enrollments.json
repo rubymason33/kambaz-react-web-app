@@ -1,0 +1,335 @@
+[
+  {
+    "_id": "E001",
+    "user": "123",
+    "course": "C105",
+    "role": "STUDENT",
+    "section": "S108",
+    "lastActivity": "2025-05-23",
+    "totalActivity": "23:31:58"
+  },
+  {
+    "_id": "E002",
+    "user": "123",
+    "course": "C102",
+    "role": "FACULTY",
+    "section": "S110",
+    "lastActivity": "2025-04-12",
+    "totalActivity": "25:17:22"
+  },
+  {
+    "_id": "E003",
+    "user": "123",
+    "course": "C107",
+    "role": "STUDENT",
+    "section": "S109",
+    "lastActivity": "2025-03-13",
+    "totalActivity": "5:15:59"
+  },
+  {
+    "_id": "E004",
+    "user": "234",
+    "course": "C107",
+    "role": "FACULTY",
+    "section": "S101",
+    "lastActivity": "2025-02-19",
+    "totalActivity": "55:42:30"
+  },
+  {
+    "_id": "E005",
+    "user": "234",
+    "course": "C102",
+    "role": "FACULTY",
+    "section": "S102",
+    "lastActivity": "2025-03-06",
+    "totalActivity": "24:13:27"
+  },
+  {
+    "_id": "E006",
+    "user": "345",
+    "course": "C101",
+    "role": "STUDENT",
+    "section": "S104",
+    "lastActivity": "2025-05-20",
+    "totalActivity": "28:54:22"
+  },
+  {
+    "_id": "E007",
+    "user": "345",
+    "course": "C105",
+    "role": "TA",
+    "section": "S105",
+    "lastActivity": "2025-04-04",
+    "totalActivity": "40:30:54"
+  },
+  {
+    "_id": "E008",
+    "user": "456",
+    "course": "C108",
+    "role": "FACULTY",
+    "section": "S102",
+    "lastActivity": "2025-04-28",
+    "totalActivity": "41:36:46"
+  },
+  {
+    "_id": "E009",
+    "user": "456",
+    "course": "C101",
+    "role": "TA",
+    "section": "S109",
+    "lastActivity": "2025-05-20",
+    "totalActivity": "10:42:56"
+  },
+  {
+    "_id": "E010",
+    "user": "456",
+    "course": "C102",
+    "role": "TA",
+    "section": "S107",
+    "lastActivity": "2025-04-08",
+    "totalActivity": "21:52:22"
+  },
+  {
+    "_id": "E011",
+    "user": "567",
+    "course": "C105",
+    "role": "TA",
+    "section": "S105",
+    "lastActivity": "2025-05-09",
+    "totalActivity": "59:40:17"
+  },
+  {
+    "_id": "E012",
+    "user": "567",
+    "course": "C102",
+    "role": "STUDENT",
+    "section": "S108",
+    "lastActivity": "2025-02-25",
+    "totalActivity": "43:13:44"
+  },
+  {
+    "_id": "E013",
+    "user": "678",
+    "course": "C103",
+    "role": "FACULTY",
+    "section": "S101",
+    "lastActivity": "2025-04-06",
+    "totalActivity": "37:12:17"
+  },
+  {
+    "_id": "E014",
+    "user": "678",
+    "course": "C102",
+    "role": "STUDENT",
+    "section": "S107",
+    "lastActivity": "2025-03-29",
+    "totalActivity": "60:18:18"
+  },
+  {
+    "_id": "E015",
+    "user": "678",
+    "course": "C107",
+    "role": "TA",
+    "section": "S106",
+    "lastActivity": "2025-02-15",
+    "totalActivity": "9:43:54"
+  },
+  {
+    "_id": "E016",
+    "user": "789",
+    "course": "C104",
+    "role": "TA",
+    "section": "S109",
+    "lastActivity": "2025-02-24",
+    "totalActivity": "32:48:34"
+  },
+  {
+    "_id": "E017",
+    "user": "789",
+    "course": "C103",
+    "role": "TA",
+    "section": "S104",
+    "lastActivity": "2025-05-06",
+    "totalActivity": "30:21:12"
+  },
+  {
+    "_id": "E018",
+    "user": "789",
+    "course": "C108",
+    "role": "STUDENT",
+    "section": "S102",
+    "lastActivity": "2025-04-25",
+    "totalActivity": "40:52:15"
+  },
+  {
+    "_id": "E019",
+    "user": "890",
+    "course": "C104",
+    "role": "TA",
+    "section": "S110",
+    "lastActivity": "2025-02-26",
+    "totalActivity": "53:29:48"
+  },
+  {
+    "_id": "E020",
+    "user": "890",
+    "course": "C101",
+    "role": "STUDENT",
+    "section": "S104",
+    "lastActivity": "2025-02-28",
+    "totalActivity": "47:42:23"
+  },
+  {
+    "_id": "E021",
+    "user": "777",
+    "course": "C106",
+    "role": "TA",
+    "section": "S109",
+    "lastActivity": "2025-03-09",
+    "totalActivity": "57:56:32"
+  },
+  {
+    "_id": "E022",
+    "user": "777",
+    "course": "C103",
+    "role": "STUDENT",
+    "section": "S110",
+    "lastActivity": "2025-04-29",
+    "totalActivity": "18:33:17"
+  },
+  {
+    "_id": "E023",
+    "user": "777",
+    "course": "C105",
+    "role": "FACULTY",
+    "section": "S101",
+    "lastActivity": "2025-03-22",
+    "totalActivity": "59:32:17"
+  },
+  {
+    "_id": "E024",
+    "user": "900",
+    "course": "C103",
+    "role": "STUDENT",
+    "section": "S108",
+    "lastActivity": "2025-02-24",
+    "totalActivity": "6:58:58"
+  },
+  {
+    "_id": "E025",
+    "user": "900",
+    "course": "C105",
+    "role": "STUDENT",
+    "section": "S101",
+    "lastActivity": "2025-04-13",
+    "totalActivity": "57:13:51"
+  },
+  {
+    "_id": "E026",
+    "user": "901",
+    "course": "C107",
+    "role": "FACULTY",
+    "section": "S108",
+    "lastActivity": "2025-02-16",
+    "totalActivity": "44:38:42"
+  },
+  {
+    "_id": "E027",
+    "user": "901",
+    "course": "C104",
+    "role": "FACULTY",
+    "section": "S106",
+    "lastActivity": "2025-05-08",
+    "totalActivity": "32:25:53"
+  },
+  {
+    "_id": "E028",
+    "user": "902",
+    "course": "C104",
+    "role": "TA",
+    "section": "S103",
+    "lastActivity": "2025-03-19",
+    "totalActivity": "44:13:21"
+  },
+  {
+    "_id": "E029",
+    "user": "902",
+    "course": "C103",
+    "role": "TA",
+    "section": "S101",
+    "lastActivity": "2025-04-07",
+    "totalActivity": "37:37:42"
+  },
+  {
+    "_id": "E030",
+    "user": "903",
+    "course": "C107",
+    "role": "STUDENT",
+    "section": "S101",
+    "lastActivity": "2025-03-19",
+    "totalActivity": "59:51:50"
+  },
+  {
+    "_id": "E031",
+    "user": "903",
+    "course": "C101",
+    "role": "FACULTY",
+    "section": "S108",
+    "lastActivity": "2025-03-10",
+    "totalActivity": "20:23:36"
+  },
+  {
+    "_id": "E032",
+    "user": "904",
+    "course": "C107",
+    "role": "STUDENT",
+    "section": "S106",
+    "lastActivity": "2025-04-16",
+    "totalActivity": "26:38:42"
+  },
+  {
+    "_id": "E033",
+    "user": "904",
+    "course": "C103",
+    "role": "STUDENT",
+    "section": "S104",
+    "lastActivity": "2025-03-01",
+    "totalActivity": "11:31:22"
+  },
+  {
+    "_id": "E034",
+    "user": "904",
+    "course": "C101",
+    "role": "STUDENT",
+    "section": "S109",
+    "lastActivity": "2025-03-06",
+    "totalActivity": "7:38:25"
+  },
+  {
+    "_id": "E035",
+    "user": "905",
+    "course": "C108",
+    "role": "STUDENT",
+    "section": "S109",
+    "lastActivity": "2025-04-06",
+    "totalActivity": "17:52:13"
+  },
+  {
+    "_id": "E036",
+    "user": "905",
+    "course": "C103",
+    "role": "TA",
+    "section": "S103",
+    "lastActivity": "2025-04-11",
+    "totalActivity": "18:34:14"
+  },
+  {
+    "_id": "E037",
+    "user": "905",
+    "course": "C107",
+    "role": "STUDENT",
+    "section": "S105",
+    "lastActivity": "2025-04-16",
+    "totalActivity": "42:32:42"
+  }
+]
