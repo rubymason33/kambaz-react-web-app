@@ -1,0 +1,55 @@
+#wd-counter-up-click,
+#wd-counter-down-click {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    margin: 0.2rem;
+}
+
+#wd-counter-up-click {
+    background-color: #2e7d32;
+}
+
+#wd-counter-down-click {
+    background-color: #c62828;
+}
+
+#wd-array-state-variables > button {
+    background-color: #2e7d32;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#wd-array-state-variables li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.2rem;
+}
+
+#wd-array-state-variables ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+#wd-array-state-variables li button {
+    background-color: #c62828;
+    color: white;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+
