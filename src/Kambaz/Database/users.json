@@ -7,7 +7,8 @@
         "lastName": "Stark",
         "email": "tony@stark.com",
         "dob": "1970-05-29",
-        "loginId": "001234561S"
+        "loginId": "001234561S",
+        "role": "STUDENT"
     },
     {
         "_id": "234",
@@ -17,7 +18,8 @@
         "lastName": "Wayne",
         "email": "bruce@wayne.com",
         "dob": "1972-02-19",
-        "loginId": "001234562S"
+        "loginId": "001234562S",
+        "role": "STUDENT"
     },
     {
         "_id": "345",
@@ -27,7 +29,8 @@
         "lastName": "Romanoff",
         "email": "natasha@avengers.com",
         "dob": "1984-11-22",
-        "loginId": "001234564S"
+        "loginId": "001234564S",
+        "role": "STUDENT"
     },
     {
         "_id": "456",
@@ -37,7 +40,8 @@
         "lastName": "Odinson",
         "email": "thor@asgard.com",
         "dob": "1982-05-25",
-        "loginId": "001234565S"
+        "loginId": "001234565S",
+        "role": "STUDENT"
     },
     {
         "_id": "567",
@@ -47,7 +51,8 @@
         "lastName": "Banner",
         "email": "bruce@avengers.com",
         "dob": "1969-12-18",
-        "loginId": "001234566S"
+        "loginId": "001234566S",
+        "role": "STUDENT"
     },
     {
         "_id": "678",
@@ -57,7 +62,8 @@
         "lastName": "Baggins",
         "email": "frodo@shire.com",
         "dob": "1368-09-22",
-        "loginId": "001234567S"
+        "loginId": "001234567S",
+        "role": "STUDENT"
     },
     {
         "_id": "789",
@@ -67,7 +73,8 @@
         "lastName": "Elessar",
         "email": "aragorn@gondor.com",
         "dob": "2931-03-01",
-        "loginId": "001234568S"
+        "loginId": "001234568S",
+        "role": "STUDENT"
     },
     {
         "_id": "890",
@@ -77,7 +84,8 @@
         "lastName": "Greenleaf",
         "email": "legolas@mirkwood.com",
         "dob": "2879-07-15",
-        "loginId": "001234569S"
+        "loginId": "001234569S",
+        "role": "STUDENT"
     },
     {
         "_id": "777",
@@ -87,7 +95,8 @@
         "lastName": "Lovelace",
         "email": "ada@lovelace.com",
         "dob": "1815-12-15",
-        "loginId": "002143650S"
+        "loginId": "002143650S",
+        "role": "STUDENT"
     },
     {
         "_id": "900",
@@ -97,7 +106,8 @@
         "lastName": "Hopper",
         "email": "hopper@navy.mil",
         "dob": "1906-12-09",
-        "loginId": "00974329472S"
+        "loginId": "00974329472S",
+        "role": "STUDENT"
     },
     {
         "_id": "901",
@@ -107,7 +117,8 @@
         "lastName": "Turing",
         "email": "turing@bletchley.uk",
         "dob": "1912-06-23",
-        "loginId": "002345678S"
+        "loginId": "002345678S",
+        "role": "STUDENT"
     },
     {
         "_id": "902",
@@ -117,7 +128,8 @@
         "lastName": "Curie",
         "email": "marie@radio.fr",
         "dob": "1867-11-07",
-        "loginId": "002345672S"
+        "loginId": "002345672S",
+        "role": "STUDENT"
     },
     {
         "_id": "903",
@@ -127,7 +139,8 @@
         "lastName": "Tesla",
         "email": "tesla@ac.com",
         "dob": "1856-07-10",
-        "loginId": "0023456784S"
+        "loginId": "0023456784S",
+        "role": "STUDENT"
     },
     {
         "_id": "904",
@@ -137,7 +150,8 @@
         "lastName": "Johnson",
         "email": "kjohnson@nasa.gov",
         "dob": "1918-08-26",
-        "loginId": "002453675S"
+        "loginId": "002453675S",
+        "role": "STUDENT"
     },
     {
         "_id": "905",
@@ -147,7 +161,8 @@
         "lastName": "Berners-Lee",
         "email": "tim@web.org",
         "dob": "1955-06-08",
-        "loginId": "008592485S"
+        "loginId": "008592485S",
+        "role": "STUDENT"
     },
     {
         "_id": "906",
@@ -157,7 +172,8 @@
         "lastName": "Mason",
         "email": "ruby@neu.org",
         "dob": "2004-05-19",
-        "loginId": "002919978S"
+        "loginId": "002919978S",
+        "role": "FACULTY"
     },
     {
         "_id": "907",
@@ -167,7 +183,8 @@
         "lastName": "Gupta",
         "email": "krish@neu.org",
         "dob": "2004-11-30",
-        "loginId": "00264839S"
+        "loginId": "00264839S",
+        "role": "STUDENT"
     },
     {
         "_id": "908",
@@ -177,7 +194,8 @@
         "lastName": "Kamm",
         "email": "erin@tem.org",
         "dob": "2005-01-25",
-        "loginId": "002746539S"
+        "loginId": "002746539S",
+        "role": "STUDENT"
     },
     {
         "_id": "909",
@@ -187,7 +205,8 @@
         "lastName": "Mason",
         "email": "etta@jrhs.org",
         "dob": "2008-04-18",
-        "loginId": "002436850S"
+        "loginId": "002436850S",
+        "role": "STUDENT"
     },
     {
         "_id": "403",
@@ -197,6 +216,7 @@
         "lastName": "Gupta",
         "email": "neel@neu.org",
         "dob": "2006-02-18",
-        "loginId": "00428923489S"
+        "loginId": "00428923489S",
+        "role": "STUDENT"
     }
 ]

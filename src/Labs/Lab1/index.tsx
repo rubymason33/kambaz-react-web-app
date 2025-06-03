@@ -282,9 +282,15 @@ export default function Lab1() {
 
 // import "./index.css"
 // export default function Lab1() {
+//     const handleClick = (parameter = "Hello") => {
+//   console.log(parameter)
+// }
+
 //     return (
 //         <div>
-//             <h2>Quiz Testing</h2>
+//             <h1>Quiz Testing</h1>
+
+
 //             <div className="test-class">This is test class</div>
 //             <div id="test-id">This is test id</div>
 //             <div id="test-id" className="test-class">This is test class and test id</div>
@@ -307,6 +313,8 @@ export default function Lab1() {
 //                 <li>List item 3</li>
 //             </ul>
 //             </div>
+
+            
 //         </div>
 //     );
 // }

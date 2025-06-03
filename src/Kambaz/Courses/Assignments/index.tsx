@@ -7,19 +7,29 @@ import LessonControlButtons from "../Modules/LessonControlButtons";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import { MdOutlineAssignment } from "react-icons/md";
 import { useParams, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import * as db from "../../Database";
 
 
 export default function Assignments() {
     const { cid } = useParams();
-    const assignments = db.assignments.filter((a: any) => a.course === cid);
+    const assignments = useSelector((state: any) =>
+        state.assignmentsReducer.assignments.filter((a: any) => a.course === cid)
+    );
 
     return (
         <div>
             <div id="wd-assignment-header" className="mb-5">
-                <Button className="me-2 float-end" size="lg" variant="danger">
+                {/* <Button className="me-2 float-end" size="lg" variant="danger">
                     <FaPlus /> Assignment
-                </Button>
+                </Button> */}
+                <Link 
+                    to={`/Kambaz/Courses/${cid}/Assignments/New`} 
+                    className="btn btn-danger me-2 float-end btn-lg"
+                >
+                    <FaPlus /> Assignment
+                </Link>
+
                 <Button className="me-2 float-end" size="lg" variant="secondary">
                     <FaPlus /> Group
                 </Button>
@@ -60,7 +70,7 @@ export default function Assignments() {
                                             <Link
                                                 to={`/Kambaz/Courses/${cid}/Assignments/${assignment._id}`}
                                                 className="wd-assignment-link">
-                                                {assignment.title}
+                                                {assignment.title || assignment.name || "Untitled"}
                                             </Link>
                                         </div>
 

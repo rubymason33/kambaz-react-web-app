@@ -367,5 +367,50 @@
         "section": "S108",
         "lastActivity": "2025-05-23",
         "totalActivity": "19:51:37"
+    },
+    {
+        "_id": "E042",
+        "user": "906",
+        "course": "C101",
+        "role": "STUDENT",
+        "section": "S107",
+        "lastActivity": "2025-05-23",
+        "totalActivity": "17:31:41"
+    },
+    {
+        "_id": "E043",
+        "user": "906",
+        "course": "C102",
+        "role": "STUDENT",
+        "section": "S107",
+        "lastActivity": "2025-05-23",
+        "totalActivity": "17:31:41"
+    },
+    {
+        "_id": "E044",
+        "user": "906",
+        "course": "C104",
+        "role": "STUDENT",
+        "section": "S107",
+        "lastActivity": "2025-05-23",
+        "totalActivity": "17:31:41"
+    },
+    {
+        "_id": "E045",
+        "user": "906",
+        "course": "C105",
+        "role": "STUDENT",
+        "section": "S107",
+        "lastActivity": "2025-05-23",
+        "totalActivity": "17:31:41"
+    },
+    {
+        "_id": "E046",
+        "user": "906",
+        "course": "C108",
+        "role": "STUDENT",
+        "section": "S107",
+        "lastActivity": "2025-05-23",
+        "totalActivity": "17:31:41"
     }
 ]
