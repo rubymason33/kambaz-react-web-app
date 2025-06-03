@@ -12,9 +12,21 @@ export default function Courses() {
     const courses = useSelector((state: any) => state.coursesReducer.courses);
     const { cid } = useParams();
     const course = courses.find((course: any) => course._id === cid);
+    const enrollments = useSelector((state: any) => state.enrollmentsReducer.enrollments);
+    const { currentUser } = useSelector((state: any) => state.accountReducer);
+
+    // Check if the current user is enrolled in the course
+    const isEnrolled = enrollments.some(
+        (e: any) => e.user === currentUser._id && e.course === cid
+    );
+
+    if (!isEnrolled) {
+        // If not enrolled, redirect back to Dashboard
+        return <Navigate to="/Kambaz/Dashboard" replace />;
+    }
 
     const {pathname} = useLocation();
-    
+
     if (!course) {
         return <h2>Loading course...</h2>;
     }
@@ -22,7 +34,7 @@ export default function Courses() {
         <div id="wd-courses">
             <h2 className="text-danger">
                 <FaAlignJustify className="me-4 fs-4 mb-1"></FaAlignJustify>
-                {course && course.number + "." + course.name} &gt; {pathname.split("/")[4]}
+                {course && course.number + "." + course.title} &gt; {pathname.split("/")[4]}
             </h2>
             <hr />
             <div className="d-flex">
