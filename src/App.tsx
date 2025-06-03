@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 
 export default function App() {
   return (
-    <HashRouter>\
+    <HashRouter>
         <Provider store={store}>
             <div>
                 <Routes>

@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { addAssignment, updateAssignment } from "./reducer";
 import { v4 as uuidv4 } from "uuid";
 import { Col, Form, Row, Button } from "react-bootstrap";
+import "./styles.css"
 
 export default function AssignmentEditor() {
     const { cid, aid } = useParams();
@@ -13,6 +14,16 @@ export default function AssignmentEditor() {
     const existingAssignment = useSelector((state: any) =>
         state.assignmentsReducer.assignments.find((a: any) => a._id === aid)
     );
+
+    const { currentUser } = useSelector((state: any) => state.accountReducer);
+    const isFaculty = currentUser?.role === "FACULTY";
+
+    // only faculty can view the editor page
+    useEffect(() => {
+        if (!isFaculty) {
+            navigate("../Assignments");
+        }
+    }, [isFaculty, navigate]);
 
     const [formData, setFormData] = useState({
         course: cid,
@@ -30,9 +41,21 @@ export default function AssignmentEditor() {
         availableUntil: "",
     });
 
+    // populate dates correctly
     useEffect(() => {
         if (existingAssignment) {
-        setFormData(existingAssignment);
+            setFormData({
+                ...existingAssignment,
+                availableFrom: existingAssignment.availableFrom
+                    ? existingAssignment.availableFrom.slice(0, 16)
+                    : "",
+                dueDate: existingAssignment.dueDate
+                    ? existingAssignment.dueDate.slice(0, 16)
+                    : "",
+                availableUntil: existingAssignment.availableUntil
+                    ? existingAssignment.availableUntil.slice(0, 16)
+                    : ""
+            });
         }
     }, [existingAssignment]);
 
@@ -187,7 +210,7 @@ export default function AssignmentEditor() {
 
                     <Form.Label><b>Due</b></Form.Label>
                     <Form.Control
-                    type="date"
+                    type="datetime-local"
                     name="dueDate"
                     value={formData.dueDate}
                     onChange={handleChange}
@@ -198,7 +221,7 @@ export default function AssignmentEditor() {
                     <Col>
                         <Form.Label><b>Available From</b></Form.Label>
                         <Form.Control
-                        type="date"
+                        type="datetime-local"
                         name="availableFrom"
                         value={formData.availableFrom}
                         onChange={handleChange}
@@ -207,7 +230,7 @@ export default function AssignmentEditor() {
                     <Col>
                         <Form.Label><b>Until</b></Form.Label>
                         <Form.Control
-                        type="date"
+                        type="datetime-local"
                         name="availableUntil"
                         value={formData.availableUntil}
                         onChange={handleChange}
