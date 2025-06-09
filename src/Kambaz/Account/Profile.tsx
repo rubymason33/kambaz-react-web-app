@@ -1,19 +1,26 @@
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { logout } from "./reducer";
+import { setCurrentUser, logout } from "./reducer";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import * as client from "./client";
 
 export default function Profile() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const signOut = () => {
-        dispatch(logout());
+    const signOut = async () => {
+        await client.signout();
+        dispatch(setCurrentUser(null));
         navigate("/Kambaz/Account/Signin");
     };
     const [profile, setProfile] = useState<any>({});
     const { currentUser } = useSelector((state: any) => state.accountReducer);
+    const updateProfile = async () => {
+        const updatedProfile = await client.updateUser(profile);
+        dispatch(setCurrentUser(updatedProfile));
+    };
+
     const fetchProfile = () => {
         if (!currentUser) return navigate("/Kambaz/Account/Signin");
         setProfile(currentUser);
@@ -97,6 +104,7 @@ export default function Profile() {
 
                     <Row>
                         <Col >
+                            <Button onClick={updateProfile} className="btn btn-primary w-100 mb-2"> Update </Button>
                             <Button
                                 id="wd-signout-btn"
                                 className="btn btn-danger w-100"

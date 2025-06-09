@@ -1,37 +1,91 @@
 import { Link } from "react-router-dom";
 import { Row, Col, Card, Button, FormControl,  } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { addCourse, deleteCourse, updateCourse } from "./Courses/reducer";
 import { enroll, unenroll } from "./Enrollments/reducer";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Dashboard(){
+axios.defaults.withCredentials = true;
+
+export default function Dashboard({
+    addNewCourse,
+    deleteCourse,
+    updateCourse,
+    courses
+}: {
+    addNewCourse: (course: any) => void;
+    deleteCourse: (courseId: string) => void;
+    updateCourse: (course: any) => void;
+    courses: any[];
+}){
     const dispatch = useDispatch();
-    const courses = useSelector((state: any) => state.coursesReducer.courses) as {
-        _id: string;
-        title: string;
-        description: string;
-        number: string;
-        startDate: string;
-        endDate: string;
-        department: string;
-        credits: number;
-        image: string;
-    }[];
-    const enrollments = useSelector((state: any) => state.enrollmentsReducer.enrollments);
+    // const courses = useSelector((state: any) => state.coursesReducer.courses) as {
+    //     _id: string;
+    //     title: string;
+    //     description: string;
+    //     number: string;
+    //     startDate: string;
+    //     endDate: string;
+    //     department: string;
+    //     credits: number;
+    //     image: string;
+    // }[];
+
+    // need to keep enrollments for the enrollment button logic, but removed filtering via backend
+    const enrollments = useSelector((state: any) => state.enrollmentsReducer.enrollments) || [];
     const { currentUser } = useSelector((state: any) => state.accountReducer);
-    const isFaculty = currentUser?.role.toUpperCase() === "FACULTY";
+    const isFaculty = currentUser?.role?.toUpperCase() === "FACULTY";
 
     const [showAllCourses, setShowAllCourses] = useState(false);
+    const [myCourses, setMyCourses] = useState<any[]>([]);
+    const [allCourses, setAllCourses] = useState<any[]>([]);
 
-    const displayedCourses = showAllCourses
-        ? courses
-        : courses.filter((c) =>
-            enrollments.some(
-            (e: any) => e.user === currentUser._id && e.course === c._id
-            )
-        );
+    // Fetch enrolled courses
+    const fetchMyCourses = async () => {
+        try {
+        const response = await axios.get("/api/users/current/courses");
+        setMyCourses(response.data);
+        } catch (error) {
+        console.error("Failed to fetch enrolled courses:", error);
+        setMyCourses([]);
+        }
+    };
+
+    // Fetch all courses
+    const fetchAllCourses = async () => {
+        try {
+        const response = await axios.get("/api/courses");
+        setAllCourses(response.data);
+        } catch (error) {
+        console.error("Failed to fetch all courses:", error);
+        setAllCourses([]);
+        }
+    };
+
+    useEffect(() => {
+        if (currentUser) {
+        fetchMyCourses();
+        fetchAllCourses();
+        } else {
+        setMyCourses([]);
+        setAllCourses([]);
+        }
+    }, [currentUser]);
+
+    const displayedCourses = Array.isArray(showAllCourses ? allCourses : myCourses)
+        ? (showAllCourses ? allCourses : myCourses)
+        : [];
+
+
+    // const displayedCourses = showAllCourses
+    //     ? courses
+    //     : courses.filter((c) =>
+    //         enrollments.some(
+    //         (e: any) => e.user === currentUser?._id && e.course === c._id
+    //         )
+    //     );
 
     const [course, setCourse] = useState({
         _id: "",
@@ -51,17 +105,18 @@ export default function Dashboard(){
             _id: uuidv4(),
             image: course.image || "/images/NEU.png",
         };
-        dispatch(addCourse(newCourse));
+        // dispatch(addCourse(newCourse));
+        addNewCourse(newCourse);
 
-        // Faculty needs to enroll to see course
-        dispatch(enroll({
-            user: currentUser._id,
-            course: newCourse._id,
-            role: "ADMIN",
-            section: "S100",
-            lastActivity: new Date().toISOString().split("T")[0],
-            totalActivity: "00:00:00"
-        }));
+        // // Faculty needs to enroll to see course
+        // dispatch(enroll({
+        //     user: currentUser?._id,
+        //     course: newCourse._id,
+        //     role: "ADMIN",
+        //     section: "S100",
+        //     lastActivity: new Date().toISOString().split("T")[0],
+        //     totalActivity: "00:00:00"
+        // }));
 
         setCourse({
             _id: "",
@@ -77,7 +132,7 @@ export default function Dashboard(){
     };
 
     const handleUpdateCourse = () => {
-        dispatch(updateCourse(course));
+        updateCourse(course);
         setCourse({
         _id: "",
         title: "",
@@ -92,15 +147,15 @@ export default function Dashboard(){
     };
 
     const handleDeleteCourse = (id: string) => {
-        dispatch(deleteCourse(id));
+        deleteCourse(id);
     };
 
     const handleEnroll = (courseId: string) => {
-        dispatch(enroll({ user: currentUser._id, course: courseId }));
+        dispatch(enroll({ user: currentUser?._id, course: courseId }));
     };
 
     const handleUnenroll = (courseId: string) => {
-        dispatch(unenroll({ user: currentUser._id, course: courseId }));
+        dispatch(unenroll({ user: currentUser?._id, course: courseId }));
     };
     
     return (
@@ -219,7 +274,7 @@ export default function Dashboard(){
                                         {/* Enroll/Unenroll Buttons */}
                                         {!isFaculty && (
                                         enrollments.some(
-                                            (e: any) => e.user === currentUser._id && e.course === course._id
+                                            (e: any) => e.user === currentUser?._id && e.course === course._id
                                         ) ? (
                                             <Button
                                             variant="danger"
