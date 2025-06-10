@@ -10,8 +10,9 @@ import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 import DeleteConfirmation from "./DeleteConfirmation";
-import { deleteAssignment } from "./reducer";
-import { useState } from "react";
+import { deleteAssignment as deleteAssignmentAction, setAssignments } from "./reducer";
+import { useEffect, useState } from "react";
+import * as assignmentsClient from "./client";
 
 
 export default function Assignments() {
@@ -27,14 +28,40 @@ export default function Assignments() {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [assignmentToDelete, setAssignmentToDelete] = useState<any>(null);
 
+    useEffect(() => {
+        const fetchAssignments = async () => {
+            if (!cid) return;
+            try {
+                const fetchedAssignments = await assignmentsClient.findAssignmentsForCourse(cid);
+                dispatch(setAssignments(fetchedAssignments));
+            } catch (error) {
+                console.error("Failed to fetch assignments:", error);
+            }
+        };
+        fetchAssignments();
+    }, [cid, dispatch]);
+
     const handleDeleteClick = (assignment: any) => {
         setAssignmentToDelete(assignment);
         setShowDeleteModal(true);
     };
 
-    const handleConfirmDelete = () => {
+    // const handleConfirmDelete = () => {
+    //     if (assignmentToDelete) {
+    //         dispatch(deleteAssignment(assignmentToDelete._id));
+    //     }
+    //     setShowDeleteModal(false);
+    //     setAssignmentToDelete(null);
+    // };
+
+    const handleConfirmDelete = async () => {
         if (assignmentToDelete) {
-            dispatch(deleteAssignment(assignmentToDelete._id));
+            try {
+                await assignmentsClient.deleteAssignment(assignmentToDelete._id);
+                dispatch(deleteAssignmentAction(assignmentToDelete._id));
+            } catch (error) {
+                console.error("Failed to delete assignment:", error);
+            }
         }
         setShowDeleteModal(false);
         setAssignmentToDelete(null);

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { addAssignment, updateAssignment } from "./reducer";
-import { v4 as uuidv4 } from "uuid";
 import { Col, Form, Row, Button } from "react-bootstrap";
 import "./styles.css"
+import * as assignmentsClient from "./client";
+
 
 export default function AssignmentEditor() {
     const { cid, aid } = useParams();
@@ -66,15 +67,36 @@ export default function AssignmentEditor() {
             setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSave = (e: any) => {
+    // const handleSave = (e: any) => {
+    //     e.preventDefault();
+    //     console.log("Saving assignment:", formData);
+    //     if (existingAssignment) {
+    //         dispatch(updateAssignment({ ...formData, _id: existingAssignment._id }));
+    //     } else {
+    //         dispatch(addAssignment({ ...formData, _id: uuidv4() }));
+    //     }
+    //     navigate("../Assignments");
+    // };
+    const handleSave = async (e: any) => {
         e.preventDefault();
-        console.log("Saving assignment:", formData);
-        if (existingAssignment) {
-            dispatch(updateAssignment({ ...formData, _id: existingAssignment._id }));
-        } else {
-            dispatch(addAssignment({ ...formData, _id: uuidv4() }));
+        try {
+            if (existingAssignment) {
+                const updatedAssignment = await assignmentsClient.updateAssignment({
+                    ...formData,
+                    _id: existingAssignment._id
+                });
+                dispatch(updateAssignment(updatedAssignment));
+            } else {
+                const newAssignment = await assignmentsClient.createAssignmentForCourse(
+                    cid as string,
+                    formData
+                );
+                dispatch(addAssignment(newAssignment));
+            }
+            navigate("../Assignments");
+        } catch (error) {
+            console.error("Error saving assignment:", error);
         }
-        navigate("../Assignments");
     };
 
     const handleCancel = () => {

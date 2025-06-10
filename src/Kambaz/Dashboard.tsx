@@ -3,7 +3,6 @@ import { Row, Col, Card, Button, FormControl,  } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { addCourse, deleteCourse, updateCourse } from "./Courses/reducer";
 import { enroll, unenroll } from "./Enrollments/reducer";
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,8 +11,7 @@ axios.defaults.withCredentials = true;
 export default function Dashboard({
     addNewCourse,
     deleteCourse,
-    updateCourse,
-    courses
+    updateCourse
 }: {
     addNewCourse: (course: any) => void;
     deleteCourse: (courseId: string) => void;

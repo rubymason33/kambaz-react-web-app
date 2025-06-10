@@ -1,6 +1,6 @@
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { setCurrentUser, logout } from "./reducer";
+import { setCurrentUser } from "./reducer";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as client from "./client";
