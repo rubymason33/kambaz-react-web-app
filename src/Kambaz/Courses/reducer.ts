@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { courses } from "../Database";
-
 const initialState = {
-    courses: courses,  // starts with preloaded courses
+    courses: [],
 };
 
 const coursesSlice = createSlice({
