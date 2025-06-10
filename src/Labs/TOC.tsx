@@ -20,8 +20,11 @@ export default function TOC() {
                 active={pathname.includes("Lab5")}> Lab 5 </Nav.Link></Nav.Item>
             <Nav.Item> <Nav.Link as={Link} to="/Kambaz" id="wd-a3"
                 active={pathname.includes("Kambaz")}> Kambaz </Nav.Link> </Nav.Item>
-            <Nav.Item> <Nav.Link href="https://github.com/rubymason33/kambaz-react-web-app" target="_blank" active={pathname.includes("github")}>Ruby's GitHub</Nav.Link> </Nav.Item>
+            <Nav.Item> <Nav.Link href="https://github.com/rubymason33/kambaz-react-web-app" target="_blank" active={pathname.includes("react")}>Ruby's React GitHub</Nav.Link> </Nav.Item>
+            <Nav.Item> <Nav.Link href="https://github.com/rubymason33/kambaz-node-server-app" target="_blank" active={pathname.includes("node")}>Ruby's Node Server GitHub</Nav.Link> </Nav.Item>
+            <Nav.Item> <Nav.Link href="https://kambaz-node-server-app-8a3n.onrender.com" target="_blank" active={pathname.includes("render")}>Ruby's Render Server</Nav.Link> </Nav.Item>
         </Nav>
 
     );
 }
+
