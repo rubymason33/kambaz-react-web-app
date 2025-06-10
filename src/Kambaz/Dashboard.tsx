@@ -8,6 +8,8 @@ import { v4 as uuidv4 } from "uuid";
 import * as enrollmentsClient from "./Enrollments/client"
 
 axios.defaults.withCredentials = true;
+const API_BASE_URL = import.meta.env.VITE_REMOTE_SERVER;
+
 
 export default function Dashboard({
     addNewCourse,
@@ -33,7 +35,7 @@ export default function Dashboard({
     // Fetch enrolled courses
     const fetchMyCourses = async () => {
         try {
-        const response = await axios.get("/api/users/current/courses");
+        const response = await axios.get(`${API_BASE_URL}/api/users/current/courses`);
         setMyCourses(response.data);
         } catch (error) {
         console.error("Failed to fetch enrolled courses:", error);
@@ -44,7 +46,7 @@ export default function Dashboard({
     // Fetch all courses
     const fetchAllCourses = async () => {
         try {
-        const response = await axios.get("/api/courses");
+        const response = await axios.get(`${API_BASE_URL}/api/courses`);
         setAllCourses(response.data);
         } catch (error) {
         console.error("Failed to fetch all courses:", error);
