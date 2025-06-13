@@ -16,7 +16,7 @@ export default function Kambaz() {
     const { currentUser } = useSelector((state: any) => state.accountReducer);
     const fetchCourses = async () => {
         try {
-        const courses = await userClient.findMyCourses();
+        const courses = await courseClient.fetchAllCourses();
         setCourses(courses);
         } catch (error) {
         console.error(error);
@@ -27,7 +27,7 @@ export default function Kambaz() {
     }, [currentUser]);
     const addNewCourse = async (course: any) => {
         try {
-            const newCourse = await userClient.createCourse(course);
+            const newCourse = await courseClient.createCourse(course);
             await fetchCourses();
             setCourses([...courses, newCourse]);
         } catch (error) {
