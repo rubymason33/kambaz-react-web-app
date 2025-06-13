@@ -7,7 +7,6 @@ import "./styles.css";
 import ProtectedRoute from "./Account/ProtectedRoute";
 import Session from "./Account/Session";
 import * as courseClient from "./Courses/client";
-import * as userClient from "./Account/client";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
