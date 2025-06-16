@@ -23,7 +23,17 @@ export default function Profile() {
 
     const fetchProfile = () => {
         if (!currentUser) return navigate("/Kambaz/Account/Signin");
-        setProfile(currentUser);
+
+        // Format dob if it exists
+        const formattedDob = currentUser.dob
+            ? new Date(currentUser.dob).toISOString().slice(0, 10)
+            : "";
+
+        setProfile({
+            ...currentUser,
+            dob: formattedDob
+        });
+            
     };
     useEffect(() => { fetchProfile(); }, []);
 
@@ -72,7 +82,9 @@ export default function Profile() {
                     <Form.Group as={Row} className="mb-2" controlId="wd-dob">
                         <Form.Label column sm="5">Date of Birth</Form.Label>
                         <Col>
-                            <Form.Control type="date" defaultValue={profile.dob} 
+                            <Form.Control
+                                type="date"
+                                value={profile.dob || ""}
                                 onChange={(e) => setProfile({ ...profile, dob: e.target.value })}
                             />
                         </Col>

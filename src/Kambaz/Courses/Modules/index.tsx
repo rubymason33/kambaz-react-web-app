@@ -17,13 +17,6 @@ export default function Modules() {
     const dispatch = useDispatch();
     const { currentUser } = useSelector((state: any) => state.accountReducer);
     const isFaculty = currentUser?.role === "FACULTY";
-    // const createModuleForCourse = async () => {
-    //     if (!cid) return;
-    //     const newModule = { name: moduleName, course: cid };
-    //     const module = await coursesClient.createModuleForCourse(cid, newModule);
-    //     dispatch(addModule(module));
-    //     setModuleName("");
-    // };
     const addModuleHandler = async () => {
         const newModule = await coursesClient.createModuleForCourse(cid!, {
             name: moduleName,
@@ -43,27 +36,10 @@ export default function Modules() {
     useEffect(() => {
         fetchModulesForCourse();
     }, [cid]);
-
-    // const removeModule = async (moduleId: string) => {
-    //     await modulesClient.deleteModule(moduleId);
-    //     dispatch(deleteModule(moduleId));
-    // };
     const deleteModuleHandler = async (moduleId: string) => {
         await modulesClient.deleteModule(moduleId);
         dispatch(deleteModule(moduleId));
     };
-
-    // const saveModule = async (module: any) => {
-    //     await modulesClient.updateModule(module);
-    //     dispatch(updateModule(module));
-    // };
-    // const fetchModules = async () => {
-    //     const modules = await coursesClient.findModulesForCourse(cid as string);
-    //     dispatch(setModules(modules));
-    // };
-    // useEffect(() => {
-    //     fetchModules();
-    // }, []);
     return (
         <div id="wd-module-page">
             {isFaculty && (

@@ -66,17 +66,6 @@ export default function AssignmentEditor() {
             const { name, value } = e.target;
             setFormData((prev) => ({ ...prev, [name]: value }));
     };
-
-    // const handleSave = (e: any) => {
-    //     e.preventDefault();
-    //     console.log("Saving assignment:", formData);
-    //     if (existingAssignment) {
-    //         dispatch(updateAssignment({ ...formData, _id: existingAssignment._id }));
-    //     } else {
-    //         dispatch(addAssignment({ ...formData, _id: uuidv4() }));
-    //     }
-    //     navigate("../Assignments");
-    // };
     const handleSave = async (e: any) => {
         e.preventDefault();
         try {

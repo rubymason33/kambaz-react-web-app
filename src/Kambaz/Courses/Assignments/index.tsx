@@ -45,15 +45,6 @@ export default function Assignments() {
         setAssignmentToDelete(assignment);
         setShowDeleteModal(true);
     };
-
-    // const handleConfirmDelete = () => {
-    //     if (assignmentToDelete) {
-    //         dispatch(deleteAssignment(assignmentToDelete._id));
-    //     }
-    //     setShowDeleteModal(false);
-    //     setAssignmentToDelete(null);
-    // };
-
     const handleConfirmDelete = async () => {
         if (assignmentToDelete) {
             try {
