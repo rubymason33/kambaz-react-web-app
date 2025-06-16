@@ -17,14 +17,31 @@ export default function Modules() {
     const dispatch = useDispatch();
     const { currentUser } = useSelector((state: any) => state.accountReducer);
     const isFaculty = currentUser?.role === "FACULTY";
+    // const addModuleHandler = async () => {
+    //     const newModule = await coursesClient.createModuleForCourse(cid!, {
+    //         name: moduleName,
+    //         course: cid,
+    //     });
+    //     dispatch(addModule(newModule));
+    //     setModuleName("");
+    // };
     const addModuleHandler = async () => {
-        const newModule = await coursesClient.createModuleForCourse(cid!, {
-            name: moduleName,
-            course: cid,
-        });
-        dispatch(addModule(newModule));
-        setModuleName("");
+        try {
+            const newModuleData = {
+                name: moduleName,
+                course: cid,
+            };
+            const savedModule = await coursesClient.createModuleForCourse(cid!, newModuleData);
+            dispatch(addModule(savedModule));
+            setModuleName("");
+            // get a refresh
+            const updatedModules = await coursesClient.findModulesForCourse(cid!);
+            dispatch(setModules(updatedModules));
+        } catch (err) {
+            console.error("Failed to create module:", err);
+        }
     };
+
     const updateModuleHandler = async (module: any) => {
         await modulesClient.updateModule(module);
         dispatch(updateModule(module));
@@ -40,6 +57,7 @@ export default function Modules() {
         await modulesClient.deleteModule(moduleId);
         dispatch(deleteModule(moduleId));
     };
+    
     return (
         <div id="wd-module-page">
             {isFaculty && (
